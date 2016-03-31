@@ -18,7 +18,7 @@ app.use(morgan('dev'))
 app.use(passport.initialize())
 /* */
 require('./system/passport')(passport, config) //passport conf
-require('./system/routes')(app, passport, jwt, multiparty) //routes conf
+require('./system/routes')(app, passport, jwt, multiparty, config) //routes conf
 /**/
     
 app.listen(config.PORTSERVER, config.IPSERVER, () => {

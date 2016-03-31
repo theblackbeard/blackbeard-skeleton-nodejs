@@ -42,9 +42,15 @@ UserSchema.methods = {
 }
 
 UserSchema.statics = {
-    load: function(id, cb) {
-        return this.findById(id, cb);
+    load: function(id) {
+        return this.findById(id).exec()
+    },
+    lists : function(options) {
+      const query = options.query;
+      return this.find(query).exec()
     }
+    
 }
+    
  
 module.exports = mongoose.model('User', UserSchema);
